@@ -1,0 +1,27 @@
+/* Стили для кнопок */
+.main-page-button {
+    width: 240px;
+    height: 36px;
+    background-color: #fff; /* Белый фон */
+    border: 0.5px solid #000; /* Черная четкая граница */
+    color: gray; /* Черный текст */
+    padding: 12px 24px; /* Размер кнопки */
+    font-size: 16px; /* Размер текста */
+    cursor: pointer; /* Курсор указателя при наведении */
+    margin: 0 10px; /* Отступы между кнопками */
+    transition: transform 0.3s, color 0.3s, background-color 0.3s;
+    font-family: 'Harmattan', sans-serif; /* Шрифт Harmattan */
+}
+
+/* Эффекты при наведении */
+.main-page-button:hover {
+    background-color: lightgray; /* Светло-серый фон */
+    color: #000; /* Черный текст */
+}
+
+/* Эффекты при нажатии */
+.main-page-button:active {
+    background-color: #000; /* Черный фон */
+    color: #fff; /* Белый текст */
+    transform: scale(0.95); /* Легкое сжатие */
+}

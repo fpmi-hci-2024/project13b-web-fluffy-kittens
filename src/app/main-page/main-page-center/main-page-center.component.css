@@ -1,0 +1,143 @@
+/* Контейнер для всей страницы */
+.main-page-center {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Контейнер для кнопок */
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 0; /* Убираем отступы сверху и снизу */
+    flex-wrap: wrap; /* Разрешаем кнопкам переходить на второй ряд */
+}
+
+/* Стили для кнопок */
+.main-page-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    font-family: 'Harmattan', sans-serif;
+    margin: 5px; /* Отступы между кнопками */
+    flex: 1 1 200px; /* Кнопки будут растягиваться и сжиматься по мере необходимости */
+}
+
+/* Эффекты при наведении */
+.main-page-button:hover {
+    background-color: gray;
+    transform: scale(1.05);
+}
+
+/* Эффекты при нажатии */
+.main-page-button:active {
+    background-color: #ccc;
+}
+
+/* Контейнер для текста и картинки */
+.main-page-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* height: calc(100vh - 80px); Высота экрана минус высота кнопок это для выравнивания надо будет */
+    padding: 0 20px; /* Отступы по бокам */
+    gap: 20px; /* Расстояние между текстом и картинкой */
+    margin-top: 0; /* Убираем отступы сверху */
+}
+
+/* Текстовый контейнер */
+.main-page-text {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-right: 20px;
+}
+
+/* Контейнер для картинки */
+.main-page-image {
+    flex: 6;
+    background-image: url('../../../assets/cat.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    height: 500px; /* Высота картинки */
+    width: 500px; /* Ширина картинки */
+    object-fit: cover; /* Картинка будет сохранять свои пропорции и обрезаться по краям */
+    max-width: 100%; /* Картинка не будет выходить за пределы контейнера */
+    max-height: 600px; /* Максимальная высота картинки */
+}
+
+/* Стили для заголовка */
+.main-page-text h1 {
+    font-family: 'Caveat', sans-serif;
+    font-size: 96px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+/* Стили для текста */
+.main-page-text p {
+    font-size: 24px;
+    color: #333;
+    line-height: 1.5;
+    word-wrap: break-word; /* Перенос текста на новую строку */
+}
+
+/* Адаптивность на экранах с шириной менее 768px (мобильные устройства) */
+@media (max-width: 768px) {
+    .buttons-container {
+        justify-content: center; /* Центрируем кнопки */
+    }
+
+    /* Уменьшаем размер кнопок на мобильных */
+    .main-page-button {
+        font-size: 14px;
+        padding: 10px 20px;
+        flex: 1 1 150px; /* Кнопки занимают меньшую ширину */
+    }
+
+    /* Переключаем контент в один столбик */
+    .main-page-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-page-image {
+        width: 80%; /* Картинка займет 80% ширины */
+        height: 300px; /* Уменьшаем высоту картинки */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+
+    .main-page-text {
+        flex: 1;
+        padding: 10px 0;
+    }
+}
+
+/* Адаптивность на экранах с шириной менее 480px (очень маленькие экраны) */
+@media (max-width: 480px) {
+    /* Уменьшаем текст на очень маленьких экранах */
+    .main-page-text h1 {
+        font-size: 48px;
+    }
+
+    .main-page-text p {
+        font-size: 18px;
+    }
+
+    /* Картинка будет еще меньше */
+    .main-page-image {
+        height: 200px; /* Еще меньше высота картинки */
+        width: 100%; /* Картинка займет всю ширину */
+    }
+}

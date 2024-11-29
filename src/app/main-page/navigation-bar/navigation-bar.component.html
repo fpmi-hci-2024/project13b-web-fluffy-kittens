@@ -1,0 +1,16 @@
+<!-- Навигационная панель -->
+<div class="navbar">
+    <div class="navbar-left">
+        <app-main-page-icon [iconClass]="'fas fa-paw'"></app-main-page-icon>
+        <h1 class="navigation-bar__title">FluffyShop</h1>
+    </div>
+
+    <div class="navbar-right">
+      <!-- Условное отображение кнопок и иконок, если пользователь авторизован -->
+      <app-main-page-button *ngIf="isAuthenticated">BASKET</app-main-page-button>
+      <app-main-page-icon *ngIf="isAuthenticated" [iconClass]="'fas fa-heart'"></app-main-page-icon> <!-- Иконка лайка -->
+      <!-- Иконка пользователя с событием click -->
+      <app-main-page-icon [iconClass]="'fas fa-user'" (click)="toggleAuthentication()"></app-main-page-icon> <!-- Иконка пользователя -->
+    </div>
+</div>
+<hr class="navbar-line">
