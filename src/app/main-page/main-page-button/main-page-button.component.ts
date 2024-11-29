@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-page-button',
@@ -8,11 +9,14 @@ import { Component, Input } from '@angular/core';
   styleUrl: './main-page-button.component.css'
 })
 export class MainPageButtonComponent {
-  @Input() label: string = '';
-  @Input() icon: string = '';
-  @Input() route: string = '';
+  @Input() routerLink: string | undefined;
 
-  onClick() {
-    console.log(`${this.label} button clicked!`);
+  constructor(private router: Router) {}
+
+  navigate() {
+    if (this.routerLink) {
+      this.router.navigate([this.routerLink]);
+    }
   }
+
 }

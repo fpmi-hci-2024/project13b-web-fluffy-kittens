@@ -4,6 +4,7 @@ import { MainPageButtonComponent } from './main-page-button/main-page-button.com
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { MainPageCenterComponent } from './main-page-center/main-page-center.component';
 import { MainPageIconComponent } from './main-page-icon/main-page-icon.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { MainPageIconComponent } from './main-page-icon/main-page-icon.component
     MainPageIconComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: 
   [

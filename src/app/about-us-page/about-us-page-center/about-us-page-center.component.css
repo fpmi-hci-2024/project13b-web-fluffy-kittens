@@ -1,0 +1,27 @@
+.about-us-content {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  .about-us-content h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #555;
+  }
+  
+  .about-us-content h2 {
+    font-size: 28px;
+    margin-top: 20px;
+    color: #444;
+  }
+  
+  .about-us-content p {
+    font-size: 18px;
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+  
