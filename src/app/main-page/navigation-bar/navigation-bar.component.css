@@ -93,3 +93,12 @@
     color: #000; /* Черный цвет */
 }
 
+/* Убираем подчеркивание у ссылки заголовка */
+.navbar-title-link {
+    text-decoration: none;
+    color: inherit; /* Наследовать цвет от родителя */
+    font-size: inherit; /* Наследовать размер шрифта */
+    font-family: inherit; /* Наследовать шрифт */
+}
+
+
