@@ -11,10 +11,10 @@
 
   <div class="navbar-right">
       <!-- Условное отображение кнопок и иконок, если пользователь авторизован -->
-      <app-main-page-button *ngIf="isAuthenticated">BASKET</app-main-page-button>
-      <app-main-page-icon *ngIf="isAuthenticated" [iconClass]="'fas fa-heart'"></app-main-page-icon>
+      <app-main-page-button *ngIf="this.auth.isAuthenticated$">BASKET</app-main-page-button>
+      <app-main-page-icon *ngIf="this.auth.isAuthenticated$" [iconClass]="'fas fa-heart'"></app-main-page-icon>
       <!-- Иконка пользователя с событием click -->
-      <app-main-page-icon [iconClass]="'fas fa-user'" (click)="toggleAuthentication()"></app-main-page-icon>
+      <app-main-page-icon [iconClass]="'fas fa-user'" (click)="login()"></app-main-page-icon>
   </div>
 </div>
 <hr class="navbar-line">

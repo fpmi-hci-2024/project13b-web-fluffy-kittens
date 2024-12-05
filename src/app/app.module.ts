@@ -8,6 +8,7 @@ import { CatalogPageModule } from './catalog-page/catalog-page.module';
 import { MainPageCenterComponent } from './main-page/main-page-center/main-page-center.component';
 import { AboutUsPageModule } from './about-us-page/about-us-page.module';
 import { ContactsPageModule } from './contacts-page/contacts-page.module';
+import { AuthModule } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,13 @@ import { ContactsPageModule } from './contacts-page/contacts-page.module';
   ],
   imports: [
     BrowserModule,
+    AuthModule.forRoot({
+      domain: 'dev-03u3jiv05cfvetyf.us.auth0.com',
+      clientId: 'XeUVaCS0GLA7DF9AhZd5MgwI7pJqDPcB',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
     AppRoutingModule,
     MainPageModule,
     CatalogPageModule,

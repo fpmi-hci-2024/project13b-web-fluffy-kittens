@@ -45,36 +45,32 @@
                   "maximumError": "8kB"
                 }
               ],
-              "optimization": true,
               "outputHashing": "all"
             },
             "development": {
               "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        }, 
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production":{
+              "buildTarget": "FluffyShopWeb:build:production"
+            }, 
+            "development": {
+              "buildTarget": "FluffyShopWeb:build:development"
             }
           },
           "defaultConfiguration": "development"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "port": 4200,
-            "open": true
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "FluffyShopWeb:build:production"
-            },
-            "development": {
-              "browserTarget": "FluffyShopWeb:build:development"
-            }
-          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "cc15a685-9aa6-4a34-8131-d2f66cda4674"
   }
 }
