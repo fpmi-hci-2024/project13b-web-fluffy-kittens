@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './navigation-bar.component.css'
 })
 export class NavigationBarComponent {
+  constructor(public auth: AuthService) {}
   isAuthenticated = false;
 
   toggleAuthentication() {
