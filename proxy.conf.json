@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "https://project13b-backend-fluffy-kittens.onrender.com",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
+  

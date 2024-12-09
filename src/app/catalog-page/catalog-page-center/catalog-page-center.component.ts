@@ -1,15 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-catalog-page-center',
-  standalone: false,
-  
   templateUrl: './catalog-page-center.component.html',
-  styleUrl: './catalog-page-center.component.css'
+  styleUrls: ['./catalog-page-center.component.css'],
+  standalone: false
 })
-export class CatalogPageCenterComponent {
-  products = Array(10).fill({
-    name: 'Sample Product',
-    description: 'This is a placeholder description for the product.'
-  });
+export class CatalogPageCenterComponent implements OnInit {
+  products: any[] = [];
+  isLoading = true;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get<any>('/api/products').subscribe({
+      next: (data) => {
+        this.products = Object.values(data); // Преобразуем объект в массив
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Ошибка при загрузке данных:', err);
+        this.isLoading = false;
+      }
+    });
+  }
 }
