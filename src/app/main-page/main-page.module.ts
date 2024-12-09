@@ -5,6 +5,8 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { MainPageCenterComponent } from './main-page-center/main-page-center.component';
 import { MainPageIconComponent } from './main-page-icon/main-page-icon.component';
 import { RouterModule } from '@angular/router';
+import { AuthButtonComponent } from "./auth-button/auth-button.component";
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 
@@ -13,12 +15,14 @@ import { RouterModule } from '@angular/router';
     MainPageButtonComponent,
     NavigationBarComponent,
     MainPageCenterComponent,
-    MainPageIconComponent
+    MainPageIconComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
-  ],
+    RouterModule,
+    AuthButtonComponent,
+    AuthModule
+],
   exports: 
   [
     NavigationBarComponent,
