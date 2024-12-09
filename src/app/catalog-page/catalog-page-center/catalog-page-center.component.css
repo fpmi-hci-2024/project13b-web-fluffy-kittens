@@ -1,38 +1,25 @@
-/* Сетка для карточек */
 .product-grid {
-    display: flex;
-    flex-wrap: wrap; /* Позволяет переносить строки */
-    gap: 20px; /* Расстояние между карточками */
-    justify-content: center; /* Центрирование карточек */
-    padding: 20px;
-  }
-  
-  /* Карточка продукта */
-  .product-info-card {
-    background-color: #f5f5f5; /* Светло-серый фон */
-    border-radius: 15px; /* Закругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Мягкая тень */
-    padding: 20px; /* Внутренние отступы */
-    max-width: 300px; /* Максимальная ширина */
-    width: 100%; /* Подстраивается под контейнер */
-    text-align: center; /* Центрирование текста */
-    transition: transform 0.3s, box-shadow 0.3s; /* Плавные эффекты */
-  }
-  
-  .product-info-card:hover {
-    transform: translateY(-5px); /* Легкий подъем при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Увеличение тени */
-  }
-  
-  .product-info-card h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #333; /* Темный цвет заголовка */
-  }
-  
-  .product-info-card p {
-    font-size: 16px;
-    color: #555; /* Более светлый цвет текста */
-    line-height: 1.5;
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-info-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease;
+}
+
+.product-info-card:hover {
+  transform: scale(1.05);
+}
+
+.loading-spinner {
+  text-align: center;
+  font-size: 18px;
+  margin: 50px 0;
+  color: #555;
+}

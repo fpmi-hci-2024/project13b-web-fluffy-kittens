@@ -9,6 +9,7 @@ import { MainPageCenterComponent } from './main-page/main-page-center/main-page-
 import { AboutUsPageModule } from './about-us-page/about-us-page.module';
 import { ContactsPageModule } from './contacts-page/contacts-page.module';
 import { AuthModule, AuthService } from '@auth0/auth0-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AuthModule, AuthService } from '@auth0/auth0-angular';
     CatalogPageModule,
     AboutUsPageModule,
     ContactsPageModule,
+    HttpClientModule
   ],
   providers: [
     AuthService
