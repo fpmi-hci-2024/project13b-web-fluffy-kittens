@@ -16,7 +16,7 @@ export class CatalogPageCenterComponent implements OnInit {
   ngOnInit() {
     this.http
       .get<any>(
-        "https://project13b-backend-fluffy-kittens.onrender.com/products/",
+        "https://project13b-backend-fluffy-kittens.onrender.com/products",
       )
       .subscribe({
         next: (data) => {
