@@ -7,12 +7,17 @@
   </div>
 
   <div class="navbar-right">
-        <app-main-page-button>BASKET</app-main-page-button>
-        <app-main-page-icon [iconClass]="'fas fa-heart'"></app-main-page-icon>
-        <app-auth-button 
-            [iconClass]="(auth.isAuthenticated$ | async) ? 'fas fa-sign-out-alt' : 'fas fa-user'" 
-            class="authbutton">
-        </app-auth-button>
+    <!-- Показываем BASKET только если пользователь авторизован -->
+    <app-main-page-button *ngIf="auth.isAuthenticated$ | async">BASKET</app-main-page-button>
+  
+    <!-- Показываем иконку сердца только если пользователь авторизован -->
+    <app-main-page-icon *ngIf="auth.isAuthenticated$ | async" [iconClass]="'fas fa-heart'"></app-main-page-icon>
+  
+    <app-auth-button 
+      [iconClass]="(auth.isAuthenticated$ | async) ? 'fas fa-sign-out-alt' : 'fas fa-user'" 
+      class="authbutton">
+    </app-auth-button>
   </div>
+  
 </div>
 <hr class="navbar-line">
