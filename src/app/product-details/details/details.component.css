@@ -1,0 +1,83 @@
+.details-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  /* Стили для контента */
+  .details-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .details-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  /* Иконка закрытия */
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .close-icon:hover {
+    color: gray;
+  }
+  
+  /* Иконка избранного */
+  .favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .favorite-icon:hover {
+    color: gray;
+  }
+  
+  /* Стили для кнопок */
+  .main-page-button {
+    width: 180px;
+    height: 36px;
+    background-color: #fff; /* White background */
+    border: 0.5px solid #000; /* Black border */
+    color: gray; /* Gray text */
+    padding: 12px 24px; /* Button size */
+    font-size: 16px; /* Text size */
+    cursor: pointer; /* Pointer on hover */
+    margin: 0 10px; /* Spacing between buttons */
+    transition: transform 0.3s, color 0.3s, background-color 0.3s;
+    font-family: 'Harmattan', sans-serif; /* Harmattan font */
+  }
+  
+  .main-page-button:hover {
+    background-color: lightgray; /* Светло-серый фон */
+    color: #000; /* Черный текст */
+  }
+  
+  .main-page-button:active {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    transform: scale(0.95); /* Slight compression */
+  }
+  
