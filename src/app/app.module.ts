@@ -10,6 +10,9 @@ import { AboutUsPageModule } from './about-us-page/about-us-page.module';
 import { ContactsPageModule } from './contacts-page/contacts-page.module';
 import { AuthModule, AuthService } from '@auth0/auth0-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,10 +32,13 @@ import { HttpClientModule } from '@angular/common/http';
     CatalogPageModule,
     AboutUsPageModule,
     ContactsPageModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
