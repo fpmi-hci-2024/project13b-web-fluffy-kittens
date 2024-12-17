@@ -16,7 +16,7 @@ export class CatalogPageCenterComponent implements OnInit {
   ngOnInit() {
     this.http.get<any>('/api/products').subscribe({
       next: (data) => {
-        this.products = Object.values(data); // Преобразуем объект в массив
+        this.products = Object.values(data);
         this.isLoading = false;
       },
       error: (err) => {
