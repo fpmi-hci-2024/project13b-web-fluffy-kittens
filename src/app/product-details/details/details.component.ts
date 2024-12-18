@@ -19,10 +19,11 @@ export class DetailsComponent {
   }
 
   addToCart(): void {
-    console.log('Добавлено в корзину:', this.product.name);
+    console.log('Заглушка. Добавлено в корзину:', this.product.name);
   }
   onAddToFavorites() : void {
-    
+    console.log('Заглушка. Товар добавлен в избранное:', this.product.name, this.product.id)
+
   }
   onClose(): void {
     this.dialogRef.close();
