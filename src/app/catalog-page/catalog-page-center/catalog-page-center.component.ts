@@ -14,10 +14,10 @@ export class CatalogPageCenterComponent implements OnInit {
   isLoading = true;
 
   constructor(private http: HttpClient, private dialog: MatDialog) {}
-
+  private backendUrl = 'https://project13b-backend-fluffy-kittens.onrender.com';
   ngOnInit() {
     this.http
-      .get<any>("https://project13b-backend-fluffy-kittens.onrender.com/products")
+      .get<any>(this.backendUrl + "/products")
       .subscribe({
         next: (data) => {
           this.products = Object.values(data);
@@ -30,11 +30,11 @@ export class CatalogPageCenterComponent implements OnInit {
       });
   }
 
-  // Открыть модальное окно с деталями товара
+
   openDetails(product: any): void {
     this.dialog.open(DetailsComponent, {
       width: '400px',
-      data: product, // Передаём данные о товаре в окно
+      data: product,
     });
   }
 }

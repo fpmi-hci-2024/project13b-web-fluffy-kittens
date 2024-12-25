@@ -1,0 +1,31 @@
+<div class="product-grid" *ngIf="!isLoading && products.length > 0; else noProducts">
+    <div class="product-info-card" *ngFor="let product of products">
+      <button class="delete-icon" (click)="removeFromFavorites(product.id)">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </button>
+      <h2>{{ product.name }}</h2>
+      <p>Price: ${{ product.price }}</p>
+    </div>
+  </div>
+  
+  <ng-template #noProducts>
+    <div class="no-products-container" *ngIf="!isLoading && products.length === 0">
+      <div class="empty-state">
+        <i class="fas fa-heart empty-icon" aria-hidden="true"></i>
+        <h2 class="empty-title">No favorite products</h2>
+        <p class="empty-description">Add products to your favorites to see them here</p>
+      </div>
+    </div>
+  </ng-template>
+  
+  <ng-template #loading>
+    <div class="loading-container" *ngIf="isLoading">
+      <mat-progress-spinner
+        color="black"
+        mode="indeterminate"
+        diameter="50">
+      </mat-progress-spinner>
+      <p>Loading...</p>
+    </div>
+  </ng-template>
+  
