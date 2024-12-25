@@ -113,15 +113,15 @@ export class BasketPageCenterComponent implements OnInit {
   }
 
   placeOrder(): void {
-    console.log('Начинаем процесс размещения заказа...');
+    console.log('Starting order placement process...');
     
     this.auth.user$
       .pipe(
         tap(user => {
           if (user) {
-            console.log('Пользователь авторизован:', user.sub);
+            console.log('User authenticated:', user.sub);
           } else {
-            console.warn('Пользователь не авторизован!');
+            console.warn('User not authenticated!');
           }
         }),
         switchMap((user) => {
@@ -136,8 +136,8 @@ export class BasketPageCenterComponent implements OnInit {
               status: 'pending'
             };
 
-            console.log('Подготовленные данные заказа:', orderData);
-            console.log('Товары в корзине:', this.cartItems);
+            console.log('Prepared order data:', orderData);
+            console.log('Cart items:', this.cartItems);
 
             const dialogRef = this.dialog.open(OrderDialogComponent, {
               width: '400px',
@@ -146,29 +146,29 @@ export class BasketPageCenterComponent implements OnInit {
 
             return dialogRef.afterClosed().pipe(
               tap(result => {
-                console.log('Результат закрытия диалога:', result);
+                console.log('Dialog close result:', result);
               }),
               switchMap(result => {
                 if (result && result.success) {
-                  console.log('Отправляем запрос на создание заказа...');
+                  console.log('Sending order creation request...');
                   return this.http.post(`${this.backendUrl}/orders`, orderData).pipe(
-                    tap(() => console.log('Заказ успешно создан')),
+                    tap(() => console.log('Order created successfully')),
                     catchError(error => {
-                      console.error('Ошибка при создании заказа:', error);
-                      console.error('Тело ответа:', error.error);
-                      console.error('Статус:', error.status);
+                      console.error('Error creating order:', error);
+                      console.error('Response body:', error.error);
+                      console.error('Status:', error.status);
                       return throwError(error);
                     }),
                     switchMap(() => {
-                      console.log('Добавляем продукты к заказу...');
+                      console.log('Adding products to order...');
                       const productPromises = this.cartItems.map(item => {
-                        console.log(`Добавляем продукт ${item.id} к заказу ${orderId}`);
+                        console.log(`Adding product ${item.id} to order ${orderId}`);
                         return this.http.post(`${this.backendUrl}/orders/${orderId}/products/${item.id}`, {}).pipe(
-                          tap(() => console.log(`Продукт ${item.id} успешно добавлен`)),
+                          tap(() => console.log(`Product ${item.id} added successfully`)),
                           catchError(error => {
-                            console.error(`Ошибка при добавлении продукта ${item.id}:`, error);
-                            console.error('Тело ответа:', error.error);
-                            console.error('Статус:', error.status);
+                            console.error(`Error adding product ${item.id}:`, error);
+                            console.error('Response body:', error.error);
+                            console.error('Status:', error.status);
                             return throwError(error);
                           })
                         );
@@ -177,29 +177,29 @@ export class BasketPageCenterComponent implements OnInit {
                     })
                   );
                 }
-                console.log('Диалог был закрыт без подтверждения');
+                console.log('Dialog was closed without confirmation');
                 return of(null);
               })
             );
           }
-          console.warn('Возврат null из-за отсутствия пользователя');
+          console.warn('Returning null due to missing user');
           return of(null);
         })
       )
       .subscribe(
         (result) => {
           if (result) {
-            console.log('Заказ успешно размещен:', result);
-            this.toastr.success('Ваш заказ успешно размещен!', 'Успех');
+            console.log('Order placed successfully:', result);
+            this.toastr.success('Your order has been placed successfully!', 'Success');
             this.cartItems = [];
           } else {
-            console.log('Заказ не был размещен (результат null)');
-            this.toastr.info('Заказ не был размещен', 'Отменено');
+            console.log('Order was not placed (null result)');
+            this.toastr.info('Order was not placed', 'Cancelled');
           }
         },
         (error) => {
-          console.error('Критическая ошибка при размещении з��каза:', error);
-          this.toastr.error('Не удалось разместить заказ', 'Ошибка');
+          console.error('Critical error while placing order:', error);
+          this.toastr.error('Failed to place order', 'Error');
         }
       );
   }
