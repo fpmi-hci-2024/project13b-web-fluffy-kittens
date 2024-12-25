@@ -1,0 +1,39 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title>Place Order</h2>
+  
+  <mat-dialog-content class="dialog-content">
+    <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter your name" [(ngModel)]="order.name" name="name" required>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Enter delivery address" [(ngModel)]="order.address" name="address" required>
+      </mat-form-field>
+
+      <div class="payment-method">
+        <label class="payment-label">Payment Method:</label>
+        <mat-radio-group [(ngModel)]="order.paymentMethod" name="paymentMethod" required class="radio-group">
+          <mat-radio-button value="now">Pay Now</mat-radio-button>
+          <mat-radio-button value="later">Pay on Delivery</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div *ngIf="order.paymentMethod === 'now'" class="card-details">
+        <mat-form-field class="form-field" appearance="outline">
+          <mat-label>Card Number</mat-label>
+          <input matInput placeholder="Enter card number" [(ngModel)]="order.cardNumber" name="cardNumber" required>
+        </mat-form-field>
+      </div>
+
+      <div mat-dialog-actions class="dialog-actions">
+        <button mat-button (click)="onCancel()" type="button">Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="!orderForm.valid" type="submit">
+          Place Order
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

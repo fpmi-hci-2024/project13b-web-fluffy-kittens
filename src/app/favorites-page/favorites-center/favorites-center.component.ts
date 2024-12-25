@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { forkJoin, of, switchMap, catchError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-favorites-center',
@@ -14,7 +15,11 @@ export class FavoritesCenterComponent implements OnInit {
   isLoading = true;
   private backendUrl = 'https://project13b-backend-fluffy-kittens.onrender.com';
 
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     console.log('Component initialized.');
@@ -64,22 +69,27 @@ export class FavoritesCenterComponent implements OnInit {
   }
 
   removeFromFavorites(productId: string): void {
-    console.log(`Removing product with ID: ${productId}`);
-    this.auth.user$.subscribe((user) => {
-      if (user) {
-        const customerId = user.sub;
-        this.http
-          .delete(`${this.backendUrl}/favorites/${customerId}/${productId}`)
-          .subscribe({
-            next: () => {
-              console.log(`Product ${productId} removed from favorites.`);
-              this.products = this.products.filter(
-                (product) => product.id !== productId
-              );
-            },
-            error: (err) => console.error('Error removing product:', err),
-          });
-      }
-    });
+    this.auth.user$
+      .pipe(
+        switchMap((user) => {
+          if (user) {
+            const customerId = user.sub;
+            const url = `${this.backendUrl}/favorites/${customerId}/products/${productId}`;
+            return this.http.delete(url);
+          } else {
+            return of(null);
+          }
+        })
+      )
+      .subscribe(
+        () => {
+          this.toastr.success('Product removed from favorites', 'Success');
+          this.products = this.products.filter(product => product.id !== productId);
+        },
+        (error) => {
+          console.error('Error removing product:', error);
+          this.toastr.error('Failed to remove product from favorites', 'Error');
+        }
+      );
   }
 }

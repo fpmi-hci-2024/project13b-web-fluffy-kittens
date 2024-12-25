@@ -10,7 +10,11 @@
   
   <ng-template #noProducts>
     <div class="no-products-container" *ngIf="!isLoading && products.length === 0">
-      <p>No favorite products found.</p>
+      <div class="empty-state">
+        <i class="fas fa-heart empty-icon" aria-hidden="true"></i>
+        <h2 class="empty-title">No favorite products</h2>
+        <p class="empty-description">Add products to your favorites to see them here</p>
+      </div>
     </div>
   </ng-template>
   

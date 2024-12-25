@@ -81,4 +81,30 @@
     color: #fff;
     transform: scale(0.95);
   }
+
+  /* Добавьте кастомные стили для правого нижнего угла */
+.toast-bottom-right {
+    bottom: 20px !important;  /* Добавьте отступ снизу */
+    right: 20px !important;   /* Добавьте отступ справа */
+    position: fixed !important;  /* Фиксированное позиционирование */
+    z-index: 9999;  /* Обеспечьте, чтобы уведомления не перекрывались */
+  }
+
+  /* Стили для анимации */
+.toast-success {
+    background-color: greenyellow !important;  /* Зеленый для успеха */
+  }
+  
+  .toast-error {
+    background-color: red !important;  /* Красный для ошибки */
+  }
+  
+  .toast-title {
+    font-weight: bold;   /* Сделаем заголовок более заметным */
+  }
+  
+  .toast-message {
+    font-size: 14px;     /* Меньший размер шрифта для сообщений */
+  }
+  
   
