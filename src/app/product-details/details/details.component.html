@@ -3,7 +3,7 @@
     <i class="fas fa-times close-icon" (click)="onClose()"></i>
   
     <!-- Иконка "Добавить в избранное" -->
-    <i class="fas fa-heart favorite-icon" (click)="onAddToFavorites()"></i>
+    <i class="fas fa-heart favorite-icon" *ngIf="auth.isAuthenticated$ | async" (click)="onAddToFavorites()"></i>
   
     <!-- Информация о продукте -->
     <div class="details-content">
@@ -15,7 +15,7 @@
   
     <!-- Кнопки внизу -->
     <div class="details-actions">
-      <button class="main-page-button" (click)="addToCart()">
+      <button class="main-page-button" *ngIf="auth.isAuthenticated$ | async" (click)="addToCart()">
         ADD TO CART
       </button>
     </div>

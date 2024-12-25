@@ -11,7 +11,7 @@
     <app-main-page-button *ngIf="auth.isAuthenticated$ | async">BASKET</app-main-page-button>
   
     <!-- Показываем иконку сердца только если пользователь авторизован -->
-    <app-main-page-icon *ngIf="auth.isAuthenticated$ | async" [iconClass]="'fas fa-heart'"></app-main-page-icon>
+    <app-main-page-icon *ngIf="auth.isAuthenticated$ | async" [iconClass]="'fas fa-heart'" [routerLink]="'/favorites'"></app-main-page-icon>
   
     <app-auth-button 
       [iconClass]="(auth.isAuthenticated$ | async) ? 'fas fa-sign-out-alt' : 'fas fa-user'" 

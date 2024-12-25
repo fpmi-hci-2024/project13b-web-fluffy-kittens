@@ -5,28 +5,26 @@
     transform: translate(-50%, -50%);
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    border-radius: 16px;
     width: 400px;
     max-width: 90%;
     padding: 20px;
     z-index: 1000;
-  }
+}
   
-  /* Стили для контента */
-  .details-content h2 {
+.details-content h2 {
     margin-top: 0;
     font-size: 24px;
     text-align: center;
-  }
+}
   
-  .details-actions {
+.details-actions {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
-  }
+}
   
-  /* Иконка закрытия */
-  .close-icon {
+.close-icon {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -35,15 +33,15 @@
     cursor: pointer;
     transition: color 0.3s;
     transition: transform 0.3s, color 0.3s;
-  }
+}
   
-  .close-icon:hover {
+.close-icon:hover {
     transform: scale(1.2);
     color: gray;
-  }
+}
   
-  /* Иконка избранного */
-  .favorite-icon {
+
+.favorite-icon {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -51,36 +49,36 @@
     color: #000;
     cursor: pointer;
     transition: transform 0.3s, color 0.3s;
-  }
+}
   
-  .favorite-icon:hover {
+.favorite-icon:hover {
     transform: scale(1.2);
     color: gray;
-  }
+}
   
-  /* Стили для кнопок */
-  .main-page-button {
+
+.main-page-button {
     width: 180px;
     height: 36px;
-    background-color: #fff; /* White background */
-    border: 0.5px solid #000; /* Black border */
-    color: gray; /* Gray text */
-    padding: 12px 24px; /* Button size */
-    font-size: 16px; /* Text size */
-    cursor: pointer; /* Pointer on hover */
-    margin: 0 10px; /* Spacing between buttons */
+    background-color: #fff;
+    border: 0.5px solid #000;
+    color: gray;
+    padding: 12px 24px;
+    font-size: 16px; 
+    cursor: pointer; 
+    margin: 0 10px; 
     transition: transform 0.3s, color 0.3s, background-color 0.3s;
-    font-family: 'Harmattan', sans-serif; /* Harmattan font */
-  }
+    font-family: 'Harmattan', sans-serif;
+}
   
   .main-page-button:hover {
-    background-color: lightgray; /* Светло-серый фон */
-    color: #000; /* Черный текст */
+    background-color: lightgray;
+    color: #000;
   }
   
   .main-page-button:active {
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
-    transform: scale(0.95); /* Slight compression */
+    background-color: #000;
+    color: #fff;
+    transform: scale(0.95);
   }
   
