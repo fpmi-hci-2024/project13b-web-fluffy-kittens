@@ -1,0 +1,115 @@
+/* Общие стили для навигационной панели */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Пространство между левым и правым блоками */
+    align-items: center; /* Центровка по вертикали */
+    padding: 10px 20px;
+    color: black;
+    background: none; /* Без фона */
+    position: relative; /* Для точного позиционирования элементов */
+}
+
+/* Левый блок с логотипом */
+.navbar-left {
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание элементов */
+    gap: 10px;
+}
+
+.navbar-left .navbar-brand {
+    font-family: 'Comic Neue', sans-serif; /* Используем Comic Neue */
+    font-weight: bold;
+    color: #000; /* Черный цвет */
+}
+
+/* Правый блок с кнопками/иконками */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Отступы между элементами справа */
+}
+
+/* Список кнопок */
+.navbar-buttons {
+    display: flex;
+    gap: 20px; /* Отступы между кнопками */
+}
+
+.navbar-buttons li {
+    list-style: none; /* Убираем маркеры у списка */
+}
+
+/* Стили для кнопок */
+.navbar-buttons app-main-page-button {
+    font-family: 'Harmattan', sans-serif; /* Шрифт Harmattan для кнопок */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: normal;
+    color: black; /* Цвет текста кнопок */
+    background: none; /* Без фона */
+    border: none; /* Убираем рамку */
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s; /* Анимация при наведении */
+}
+
+.navbar-buttons app-main-page-button:hover {
+    color: gray; /* Серый цвет текста при наведении */
+    transform: scale(1.05); /* Небольшое увеличение */
+}
+
+/* Стили для иконок */
+.navbar-icons {
+    display: flex;
+    gap: 15px; /* Отступы между иконками */
+}
+
+.navbar-icons .icon {
+    font-size: 24px; /* Размер иконок */
+    color: black; /* Цвет иконок */
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s; /* Анимация при наведении */
+}
+
+.navbar-icons .icon:hover {
+    color: gray; /* Серый цвет при наведении */
+    transform: scale(1.2); /* Увеличение иконки */
+}
+
+/* Линия под навигацией */
+.navbar-line {
+    border: 0;
+    border-top: 1px solid gray; /* Черная линия */
+    width: 98%;
+    align-items: center;
+}
+
+/* Заголовок (например, Fluffy Shop) */
+.navigation-bar__title {
+    font-family: 'Comic Neue', sans-serif; /* Используем Comic Neue */
+    font-size: 36px; /* Размер текста */
+    font-weight: bold;
+    line-height: 1; /* Уменьшаем влияние межстрочного расстояния */
+    margin: 0; /* Убираем лишние отступы */
+    padding: 0; /* Убираем лишние внутренние отступы */
+    color: #000; /* Черный цвет */
+}
+
+/* Убираем подчеркивание у ссылки заголовка */
+.navbar-title-link {
+    text-decoration: none;
+    color: inherit; /* Наследовать цвет от родителя */
+    font-size: inherit; /* Наследовать размер шрифта */
+    font-family: inherit; /* Наследовать шрифт */
+}
+
+.authbutton {
+    font-size: 30px; /* Размер иконки */
+    color: #333;
+    margin: 0 10px; /* Отступы между иконками */
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .authbutton:hover {
+    transform: scale(1.2); /* Увеличиваем иконку при наведении */
+    color: gray; /* Изменение цвета при наведении */
+}

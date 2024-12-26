@@ -1,0 +1,110 @@
+.details-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    width: 400px;
+    max-width: 90%;
+    padding: 20px;
+    z-index: 1000;
+}
+  
+.details-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    text-align: center;
+}
+  
+.details-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+  
+.close-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+    transition: color 0.3s;
+    transition: transform 0.3s, color 0.3s;
+}
+  
+.close-icon:hover {
+    transform: scale(1.2);
+    color: gray;
+}
+  
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+  
+.favorite-icon:hover {
+    transform: scale(1.2);
+    color: gray;
+}
+  
+
+.main-page-button {
+    width: 180px;
+    height: 36px;
+    background-color: #fff;
+    border: 0.5px solid #000;
+    color: gray;
+    padding: 12px 24px;
+    font-size: 16px; 
+    cursor: pointer; 
+    margin: 0 10px; 
+    transition: transform 0.3s, color 0.3s, background-color 0.3s;
+    font-family: 'Harmattan', sans-serif;
+}
+  
+  .main-page-button:hover {
+    background-color: lightgray;
+    color: #000;
+  }
+  
+  .main-page-button:active {
+    background-color: #000;
+    color: #fff;
+    transform: scale(0.95);
+  }
+
+  /* Добавьте кастомные стили для правого нижнего угла */
+.toast-bottom-right {
+    bottom: 20px !important;  /* Добавьте отступ снизу */
+    right: 20px !important;   /* Добавьте отступ справа */
+    position: fixed !important;  /* Фиксированное позиционирование */
+    z-index: 9999;  /* Обеспечьте, чтобы уведомления не перекрывались */
+  }
+
+  /* Стили для анимации */
+.toast-success {
+    background-color: greenyellow !important;  /* Зеленый для успеха */
+  }
+  
+  .toast-error {
+    background-color: red !important;  /* Красный для ошибки */
+  }
+  
+  .toast-title {
+    font-weight: bold;   /* Сделаем заголовок более заметным */
+  }
+  
+  .toast-message {
+    font-size: 14px;     /* Меньший размер шрифта для сообщений */
+  }
+  
+  

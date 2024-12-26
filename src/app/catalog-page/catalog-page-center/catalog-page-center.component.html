@@ -1,0 +1,17 @@
+<div class="product-grid" *ngIf="!isLoading; else loading">
+  <div class="product-info-card" *ngFor="let product of products" (click)="openDetails(product)">
+    <h2>{{ product.name }}</h2>
+    <p>Price: ${{ product.price }}</p>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="loading-container">
+    <mat-progress-spinner 
+      color="black" 
+      mode="indeterminate"
+      diameter="50">
+    </mat-progress-spinner>
+    <p>Loading...</p>
+  </div>
+</ng-template>

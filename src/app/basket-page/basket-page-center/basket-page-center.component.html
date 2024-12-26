@@ -1,0 +1,42 @@
+<!-- Окно корзины -->
+<div *ngIf="isLoading" class="loading-container">
+  <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="!isLoading && cartItems.length > 0" class="product-grid">
+  <div *ngFor="let item of cartItems" class="product-info-card">
+    <div class="product-details">
+      <h3 class="product-title">{{ item.name }}</h3>
+      <p class="product-price">${{ item.price }}</p>
+      <div class="quantity-container">
+        <div class="quantity-buttons">
+          <button (click)="changeQuantity(item.id, 'decrease')" class="quantity-button">-</button>
+          <span class="quantity-text">{{ item.quantity }}</span>
+          <button (click)="changeQuantity(item.id, 'increase')" class="quantity-button">+</button>
+        </div>
+      </div>
+      <button (click)="removeFromCart(item.id)" class="delete-icon">X</button>
+    </div>
+  </div>
+</div>
+
+<!-- Итоговая сумма -->
+<div *ngIf="!isLoading && cartItems.length > 0" class="order-summary">
+  <div class="total-container">
+    <span class="total-amount">Total: ${{ calculateTotal() }}</span>
+  </div>
+</div>
+
+<div *ngIf="!isLoading && cartItems.length > 0" class="order-button-container">
+  <button (click)="placeOrder()" class="place-order-button">Place Order</button>
+</div>
+
+<!-- Сообщение при пустой корзине -->
+<div *ngIf="!isLoading && cartItems.length === 0" class="no-products-container">
+  <div class="empty-state">
+    <i class="fa fa-shopping-cart empty-icon" aria-hidden="true"></i>
+    <h2 class="empty-title">Your cart is empty</h2>
+    <p class="empty-description">Add items to your cart to start shopping</p>
+  </div>
+</div>

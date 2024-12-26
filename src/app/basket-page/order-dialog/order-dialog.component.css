@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+
+.dialog-container {
+  width: auto;
+  padding: 12px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.dialog-content {
+  margin: 4px 0;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.payment-method {
+  margin: 8px 0;
+}
+
+.payment-label {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.card-details {
+  margin-top: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 0 0 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Material Design переопределения */
+:host ::ng-deep .mat-dialog-container {
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100% !important;
+  max-width: 360px !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+:host ::ng-deep .mat-dialog-content {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-height: none !important;
+}
+
+:host ::ng-deep .mat-form-field {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Кнопки */
+:host ::ng-deep button[mat-button],
+:host ::ng-deep button[mat-raised-button] {
+  padding: 0 12px;
+  font-size: 14px;
+  min-width: 70px;
+  height: 32px;
+}
+
+/* Заголовок */
+:host ::ng-deep [mat-dialog-title] {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Поля ввода */
+:host ::ng-deep .mat-form-field-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  padding: 4px 0;
+  width: auto !important;
+  border-top: none;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0 8px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: #f8f9fa;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .dialog-container {
+    padding: 8px;
+  }
+
+  :host ::ng-deep .mat-dialog-container {
+    width: 95vw !important;
+    max-width: none;
+  }
+} 

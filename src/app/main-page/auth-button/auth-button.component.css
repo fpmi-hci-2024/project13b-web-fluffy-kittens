@@ -1,0 +1,15 @@
+
+/* Стили для иконок */
+i {
+    font-size: 30px; /* Размер иконки */
+    color: #333;
+    margin: 0 10px; /* Отступы между иконками */
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  i:hover {
+    transform: scale(1.2); /* Увеличиваем иконку при наведении */
+    color: gray; /* Изменение цвета при наведении */
+}
+  
